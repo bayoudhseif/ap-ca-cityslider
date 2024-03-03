@@ -1,28 +1,4 @@
-/* const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-  
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-  
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-
-    
-  });
-
-  */
+import {apiKey} from "/key.js";
 
 import "./style.css";
 // import Swiper bundle with all modules installed
@@ -54,7 +30,6 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
-const apiKey = '1ab0bf6dd27f20addf0c3d508b1c3254';
 const slides = document.querySelectorAll('.swiper-slide');
 
 slides.forEach(slide => {
