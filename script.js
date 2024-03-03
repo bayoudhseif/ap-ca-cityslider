@@ -1,38 +1,26 @@
-import {apiKey} from "/key.js";
-
+import { apiKey } from "/key.js";
 import "./style.css";
-// import Swiper bundle with all modules installed
 import Swiper from "swiper/bundle";
-
-// import styles bundle
 import "swiper/css/bundle";
 
-// init Swiper:
-const swiper = new Swiper(".swiper", {
-  // Optional parameters
-  direction: "horizontal",
-  loop: true,
+function initSwiper() {
+  return new Swiper(".swiper", {
+    direction: "horizontal",
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    scrollbar: {
+      el: ".swiper-scrollbar",
+    },
+  });
+}
 
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-
-  // And if we need scrollbar
-  scrollbar: {
-    el: ".swiper-scrollbar",
-  },
-});
-
-const slides = document.querySelectorAll('.swiper-slide');
-
-slides.forEach(slide => {
+function fetchAndDisplayWeather(slide) {
   const city = slide.getAttribute('data-city');
   const temperatureElement = slide.querySelector('.temperature');
   temperatureElement.textContent = 'Loading...';
@@ -48,4 +36,15 @@ slides.forEach(slide => {
     .catch(() => {
       temperatureElement.textContent = 'Failed to load temperature';
     });
-});
+}
+
+function init() {
+  const swiper = initSwiper();
+  const slides = document.querySelectorAll('.swiper-slide');
+
+  slides.forEach(slide => {
+    fetchAndDisplayWeather(slide);
+  });
+}
+
+init();
