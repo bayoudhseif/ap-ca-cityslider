@@ -1,0 +1,36 @@
+.swiper {
+  width: 75%;
+  height: 500px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px; /* Adds rounded borders to the images */
+}
+
+.swiper-slide {
+  position: relative; /* Needed to position the city name relative to the slide */
+}
+
+.swiper-slide::before {
+  content: attr(data-city); /* Fetches the city name from a data-city attribute */
+  position: absolute; /* Positions the city name on top of the image */
+  top: 10px; /* Adjust as needed */
+  left: 10px; /* Adjust as needed */
+  color: white; /* Adjust as needed */
+  font-size: 20px; /* Adjust as needed */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Adds a shadow to the text */
+}
+
+.temperature {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
