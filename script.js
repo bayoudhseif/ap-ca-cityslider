@@ -1,21 +1,21 @@
-import { apiKey } from "/key.js";
-import "./style.css";
-import Swiper from "swiper/bundle";
-import "swiper/css/bundle";
+import { apiKey } from '/key.js';
+import './style.css';
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
 
 function initSwiper() {
-  return new Swiper(".swiper", {
-    direction: "horizontal",
+  return new Swiper('.swiper', {
+    direction: 'horizontal',
     loop: true,
     pagination: {
-      el: ".swiper-pagination",
+      el: '.swiper-pagination',
     },
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
     scrollbar: {
-      el: ".swiper-scrollbar",
+      el: '.swiper-scrollbar',
     },
   });
 }
@@ -25,9 +25,11 @@ function fetchAndDisplayWeather(slide) {
   const temperatureElement = slide.querySelector('.temperature');
   temperatureElement.textContent = 'Loading...';
 
-  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
-    .then(response => response.json())
-    .then(data => {
+  fetch(
+    `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`,
+  )
+    .then((response) => response.json())
+    .then((data) => {
       const roundedTemp = Math.round(data.main.temp);
       const iconCode = data.weather[0].icon;
       const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
@@ -42,7 +44,7 @@ function init() {
   const swiper = initSwiper();
   const slides = document.querySelectorAll('.swiper-slide');
 
-  slides.forEach(slide => {
+  slides.forEach((slide) => {
     fetchAndDisplayWeather(slide);
   });
 }
