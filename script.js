@@ -41,7 +41,7 @@ function fetchAndDisplayWeather(slide) {
 }
 
 function init() {
-  const swiper = initSwiper();
+  initSwiper();
   const slides = document.querySelectorAll('.swiper-slide');
 
   slides.forEach((slide) => {
