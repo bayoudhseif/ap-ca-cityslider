@@ -19,15 +19,28 @@ function createGlobe() {
   const textureLoader = new THREE.TextureLoader();
   const earthTexture = textureLoader.load('img/earth.jpg');
   const material = new THREE.MeshBasicMaterial({ map: earthTexture });
-  const sphere = new THREE.Mesh(geometry, material);
-  scene.add(sphere);
+  const globe = new THREE.Mesh(geometry, material);
+  scene.add(globe);
 
   camera.position.z = 15;
 
-  // Create OrbitControls
+  // Cities coordinates
+  const cities = {
+    Paris: { lat: 48.8566, lng: 2.3522 },
+    SaoPaulo: { lat: -23.5505, lng: -46.6333 },
+    Sydney: { lat: -33.8688, lng: 151.2093 },
+    Tokyo: { lat: 35.6895, lng: 139.6917 },
+    Tunis: { lat: 36.8065, lng: 10.1815 },
+  };
+
+  // Add markers for each city
+  Object.keys(cities).forEach((city) => {
+    const marker = createMarker(cities[city].lat, cities[city].lng, 5); // Radius of 5 is the globe's radius
+    scene.add(marker);
+  });
+
   const controls = new OrbitControls(camera, renderer.domElement);
-  // Adjust controls settings
-  controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+  controls.enableDamping = true;
   controls.dampingFactor = 0.05;
   controls.screenSpacePanning = false;
   controls.minDistance = 10;
@@ -36,21 +49,28 @@ function createGlobe() {
 
   function animate() {
     requestAnimationFrame(animate);
-    controls.update(); // only required if controls.enableDamping = true, or if controls.autoRotate = true
+    controls.update();
     renderer.render(scene, camera);
   }
 
   animate();
 }
 
-// Adjust globe size on window resize
-window.addEventListener('resize', function () {
-  if (!renderer || !camera || !globeElement) return;
-  const width = globeElement.offsetWidth;
-  const height = globeElement.offsetHeight;
-  renderer.setSize(width, height);
-  camera.aspect = width / height;
-  camera.updateProjectionMatrix();
-});
+function createMarker(lat, lng, radius) {
+  const phi = (90 - lat) * (Math.PI / 180);
+  const theta = (lng + 180) * (Math.PI / 180);
+
+  const x = -(radius * Math.sin(phi) * Math.cos(theta));
+  const y = radius * Math.cos(phi);
+  const z = radius * Math.sin(phi) * Math.sin(theta);
+
+  const markerGeometry = new THREE.SphereGeometry(0.1, 32, 32); // Small sphere as a marker
+  const markerMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+  const marker = new THREE.Mesh(markerGeometry, markerMaterial);
+
+  marker.position.set(x, y, z);
+
+  return marker;
+}
 
 createGlobe();
