@@ -1,10 +1,12 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Align items at the start of the container */
-  height: 100vh;
+  justify-content: unset;
+  align-items: unset;
+  flex-direction: column; /* This ensures content flows vertically */
+  display: flex; /* Keep using flex for vertical alignment */
+  height: auto; /* Adjusted to auto to accommodate all content */
+  min-height: 100vh; /* Ensures at least full viewport height */
   margin: 0;
-  padding-top: 20px; /* Optional: Adds some space at the top */
+  padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
   background-color: #f0f0f0;
