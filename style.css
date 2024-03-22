@@ -1,9 +1,10 @@
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Align items at the start of the container */
   height: 100vh;
   margin: 0;
+  padding-top: 20px; /* Optional: Adds some space at the top */
   background-color: #f0f0f0;
   font-family: 'Arial', sans-serif;
 }
@@ -14,6 +15,7 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   overflow: hidden;
+  margin-top: 0; /* Adjust or remove this as needed */
 }
 
 .swiper-slide img {
