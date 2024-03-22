@@ -13,10 +13,14 @@ function createGlobe() {
   document.getElementById('globe').appendChild(renderer.domElement);
 
   const geometry = new THREE.SphereGeometry(5, 32, 32);
-  const material = new THREE.MeshBasicMaterial({
-    color: 0x00ff00,
-    wireframe: true,
-  });
+
+  // Use TextureLoader to load the earth texture
+  const textureLoader = new THREE.TextureLoader();
+  const earthTexture = textureLoader.load('img/earth.jpg');
+
+  // Create a material and apply the texture
+  const material = new THREE.MeshBasicMaterial({ map: earthTexture });
+
   const sphere = new THREE.Mesh(geometry, material);
   scene.add(sphere);
 
