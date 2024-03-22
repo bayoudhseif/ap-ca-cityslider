@@ -1,6 +1,6 @@
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-// Define these variables in a scope accessible throughout the script
 let camera, renderer, globeElement;
 
 function createGlobe() {
@@ -24,10 +24,19 @@ function createGlobe() {
 
   camera.position.z = 15;
 
+  // Create OrbitControls
+  const controls = new OrbitControls(camera, renderer.domElement);
+  // Adjust controls settings
+  controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+  controls.dampingFactor = 0.05;
+  controls.screenSpacePanning = false;
+  controls.minDistance = 10;
+  controls.maxDistance = 50;
+  controls.maxPolarAngle = Math.PI / 2;
+
   function animate() {
     requestAnimationFrame(animate);
-    sphere.rotation.x += 0.01;
-    sphere.rotation.y += 0.01;
+    controls.update(); // only required if controls.enableDamping = true, or if controls.autoRotate = true
     renderer.render(scene, camera);
   }
 
