@@ -11,8 +11,9 @@ function createGlobe() {
   const scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
 
-  renderer = new THREE.WebGLRenderer();
+  renderer = new THREE.WebGLRenderer({ alpha: true }); // Enable transparent background
   renderer.setSize(width, height);
+  renderer.setClearAlpha(0); // Set clear alpha to 0 for full transparency
   globeElement.appendChild(renderer.domElement);
 
   const geometry = new THREE.SphereGeometry(5, 32, 32);
