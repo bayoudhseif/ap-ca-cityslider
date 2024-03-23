@@ -30,7 +30,7 @@ export function createGlobe() {
 
   const geometry = new THREE.SphereGeometry(5, 64, 64); // Increased detail
   const textureLoader = new THREE.TextureLoader();
-  const globeTexture = textureLoader.load('img/earth6.jpg');
+  const globeTexture = textureLoader.load('img/earth3.jpg');
   const material = new THREE.MeshBasicMaterial({ map: globeTexture });
   const globe = new THREE.Mesh(geometry, material);
   scene.add(globe);
@@ -73,11 +73,11 @@ export function createGlobe() {
 
 export function updateGlobeView(cityName) {
   const cities = {
-    Paris: { lat: 48.8566, lng: 2.3522 },
-    SaoPaulo: { lat: -23.5505, lng: -46.6333 },
-    Sydney: { lat: -33.8688, lng: 151.2093 },
-    Tokyo: { lat: 35.6895, lng: 139.6917 },
-    Tunis: { lat: 36.8065, lng: 10.1815 },
+    PARIS: { lat: 48.8566, lng: 2.3522 },
+    SAOPAULO: { lat: -23.5505, lng: -46.6333 },
+    SYDNEY: { lat: -33.8688, lng: 151.2093 },
+    TOKYO: { lat: 35.6895, lng: 139.6917 },
+    TUNIS: { lat: 36.8065, lng: 10.1815 },
   };
 
   const city = cities[cityName.replace(/\s+/g, '')];
