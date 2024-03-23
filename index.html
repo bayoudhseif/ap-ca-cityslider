@@ -9,8 +9,55 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-
     <script defer src="main.js" type="module"></script>
+    <style>
+      /* Custom button styling */
+      .custom-swiper-buttons-1,
+      .custom-swiper-buttons-2 {
+        position: fixed;
+        top: 60%; /* Adjust this to move the buttons a bit below the middle */
+        transform: translate(-50%, -50%);
+        z-index: 10;
+      }
+
+      .custom-swiper-buttons-1 {
+        left: 20%; /* Adjust this to center the buttons */
+      }
+
+      .custom-swiper-buttons-2 {
+        left: 80%; /* Adjust this to center the buttons */
+      }
+
+      .custom-swiper-buttons-1 button,
+      .custom-swiper-buttons-2 button {
+        background: rgba(
+          255,
+          255,
+          255,
+          0.5
+        ); /* Change background color on hover */
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: rgb(0, 0, 0);
+        margin: 10px;
+        padding: 30px 25px; /* Increased padding for button size */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+        transition: all 0.3s ease; /* Smooth transition */
+      }
+
+      .custom-swiper-buttons-1 button:hover,
+      .custom-swiper-buttons-2 button:hover {
+        background: rgba(
+          255,
+          255,
+          255,
+          0.75
+        ); /* Change background color on hover */
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Adjusted shadow effect on hover */
+      }
+    </style>
   </head>
   <body>
     <section class="swiper">
@@ -37,10 +84,17 @@
         </div>
       </div>
       <div class="swiper-pagination"></div>
-      <button class="swiper-button-prev" aria-label="Previous slide"></button>
-      <button class="swiper-button-next"></button>
       <div class="swiper-scrollbar"></div>
     </section>
+
+    <!-- Custom swiper buttons -->
+    <div class="custom-swiper-buttons-1">
+      <button class="swiper-button-prev" aria-label="Next slide"></button>
+    </div>
+
+    <div class="custom-swiper-buttons-2">
+      <button class="swiper-button-next" aria-label="Next slide"></button>
+    </div>
 
     <section id="globe-section">
       <div id="globe"></div>

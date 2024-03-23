@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding-top: 0px;
   background-color: #f0f0f0;
-  font-family: 'Montserrat', sans-serif; /* Updated font-family */
+  font-family: 'Montserrat', sans-serif;
   position: relative;
 }
 
@@ -38,61 +38,38 @@ body {
 .swiper-slide::before {
   content: attr(data-city);
   position: absolute;
-  top: 75px; /* Keeps it near the top, adjust as needed */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Adjust horizontal centering */
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
-  font-family: 'Montserrat', sans-serif; /* Montserrat font */
-  font-size: 32px; /* Large size for visibility */
-  font-weight: 900; /* Bold for emphasis */
-  letter-spacing: 1.2px; /* Modern letter-spacing */
-  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Pronounced shadow for depth */
-  background-color: rgba(0, 0, 0, 0.5); /* Subtle background for contrast */
-  padding: 10px 20px; /* Padding for a pill-shaped effect */
-  border-radius: 10px; /* Rounded corners for a modern look */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
   z-index: 2;
-  white-space: nowrap; /* Prevents the text from wrapping */
+  white-space: nowrap;
 }
 
 .temperature {
   position: absolute;
-  top: 130px; /* Adjust to place below the city name */
-  left: 50%; /* Center horizontally on the screen */
-  transform: translateX(-50%); /* Align center horizontally */
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
-  font-family: 'Montserrat', sans-serif; /* Consistent font family */
-  font-size: 28px; /* Larger font size for visibility */
-  font-weight: 600; /* Semi-bold for a clear appearance */
-  letter-spacing: 1px; /* Modern letter-spacing */
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  padding: 10px 20px; /* Padding for a modern, rounded effect */
-  border-radius: 10px; /* Rounded corners */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
   z-index: 2;
-  white-space: nowrap; /* Keep the temperature on one line */
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  width: 40px; /* Slightly larger buttons */
-  height: 40px; /* Slightly larger buttons */
-  color: #000;
-  background: #fff;
-  border: none;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  z-index: 3;
-}
-
-.swiper-button-next {
-  right: 20px; /* Increased spacing from the edge */
-}
-
-.swiper-button-prev {
-  left: 20px; /* Increased spacing from the edge */
+  white-space: nowrap;
 }
 
 #globe-section {
@@ -108,8 +85,7 @@ body {
   z-index: 2;
   border-radius: 15px;
   overflow: hidden;
-  /* Increased box-shadow values for a more pronounced effect */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Darker shadow with more blur */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 #globe {
