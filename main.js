@@ -2,9 +2,10 @@ import { apiKey } from '/key.js';
 import './style.css';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
+import { createGlobe, updateGlobeView } from './globe.js';
 
 function initSwiper() {
-  return new Swiper('.swiper', {
+  const swiper = new Swiper('.swiper', {
     direction: 'horizontal',
     loop: true,
     pagination: {
@@ -18,6 +19,8 @@ function initSwiper() {
       el: '.swiper-scrollbar',
     },
   });
+
+  return swiper;
 }
 
 function fetchAndDisplayWeather(slide) {
@@ -41,12 +44,26 @@ function fetchAndDisplayWeather(slide) {
 }
 
 function init() {
-  initSwiper();
+  const swiper = initSwiper();
   const slides = document.querySelectorAll('.swiper-slide');
 
   slides.forEach((slide) => {
     fetchAndDisplayWeather(slide);
   });
+
+  createGlobe();
+
+  swiper.on('slideChange', () => {
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    const cityName = activeSlide.getAttribute('data-city');
+    updateGlobeView(cityName);
+  });
+
+  // Call updateGlobeView for the initial slide
+  const initialSlide = swiper.slides[swiper.activeIndex];
+  const initialCityName = initialSlide.getAttribute('data-city');
+  updateGlobeView(initialCityName);
 }
 
+// Call the init function to kick things off
 init();
