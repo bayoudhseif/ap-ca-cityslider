@@ -45,7 +45,7 @@ export function createGlobe() {
   };
 
   const markerGeometry = new THREE.SphereGeometry(0.15, 32, 32); // Marker size
-  const markerMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+  const markerMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
 
   Object.values(cities).forEach(({ lat, lng }) => {
     const position = calculateCameraPosition(lat, lng, 5);
