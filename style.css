@@ -32,33 +32,44 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
 .swiper-slide::before {
   content: attr(data-city);
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 75px; /* Keeps it near the top, adjust as needed */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust horizontal centering */
   color: white;
-  font-size: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Montserrat', sans-serif; /* Montserrat font */
+  font-size: 32px; /* Large size for visibility */
+  font-weight: 900; /* Bold for emphasis */
+  letter-spacing: 1.2px; /* Modern letter-spacing */
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Pronounced shadow for depth */
+  background-color: rgba(0, 0, 0, 0.5); /* Subtle background for contrast */
+  padding: 10px 20px; /* Padding for a pill-shaped effect */
+  border-radius: 10px; /* Rounded corners for a modern look */
   z-index: 2;
+  white-space: nowrap; /* Prevents the text from wrapping */
 }
 
 .temperature {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(
-    255,
-    255,
-    255,
-    0.75
-  ); /* Slightly more opaque background for better readability */
-  color: #333; /* Darker text color for contrast */
-  padding: 8px 15px; /* More padding for a better appearance */
-  border-radius: 8px; /* Rounded corners for a modern look */
-  font-weight: 500; /* Medium font weight for readability */
+  top: 130px; /* Adjust to place below the city name */
+  left: 50%; /* Center horizontally on the screen */
+  transform: translateX(-50%); /* Align center horizontally */
+  color: white;
+  font-family: 'Montserrat', sans-serif; /* Consistent font family */
+  font-size: 28px; /* Larger font size for visibility */
+  font-weight: 600; /* Semi-bold for a clear appearance */
+  letter-spacing: 1px; /* Modern letter-spacing */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 10px 20px; /* Padding for a modern, rounded effect */
+  border-radius: 10px; /* Rounded corners */
+  z-index: 2;
+  white-space: nowrap; /* Keep the temperature on one line */
 }
 
 .swiper-button-next,
@@ -84,21 +95,21 @@ body {
   left: 20px; /* Increased spacing from the edge */
 }
 
-/* Modernizing globe-section with updated styles */
 #globe-section {
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%; /* Increased width for a more dominant visual presence */
-  height: 60%; /* Increased height for a more dominant visual presence */
+  width: 60%;
+  height: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
-  border-radius: 15px; /* Added border-radius for a softer, modern look */
-  overflow: hidden; /* Ensures content fits within the rounded borders */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+  border-radius: 15px;
+  overflow: hidden;
+  /* Increased box-shadow values for a more pronounced effect */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Darker shadow with more blur */
 }
 
 #globe {

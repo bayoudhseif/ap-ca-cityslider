@@ -18,7 +18,7 @@ function createGlobe() {
 
   const geometry = new THREE.SphereGeometry(5, 32, 32);
   const textureLoader = new THREE.TextureLoader();
-  const earthTexture = textureLoader.load('img/earth.jpg');
+  const earthTexture = textureLoader.load('img/earth6.jpg');
   const material = new THREE.MeshBasicMaterial({ map: earthTexture });
   const globe = new THREE.Mesh(geometry, material);
   scene.add(globe);
